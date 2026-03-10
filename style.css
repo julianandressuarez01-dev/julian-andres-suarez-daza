@@ -1,137 +1,86 @@
-body{
+let equipos = [
 
-background:#0b0f14;
+{nombre:"Real Madrid", score:1000},
+{nombre:"Barcelona", score:1000},
+{nombre:"Manchester City", score:1000},
+{nombre:"Liverpool", score:1000},
+{nombre:"Bayern Munich", score:1000},
+{nombre:"PSG", score:1000},
+{nombre:"Juventus", score:1000},
+{nombre:"Chelsea", score:1000},
+{nombre:"Inter Milan", score:1000},
+{nombre:"AC Milan", score:1000}
 
-font-family:Arial;
+];
 
-color:white;
+let equipoA = document.getElementById("equipoA");
+let equipoB = document.getElementById("equipoB");
+let ranking = document.getElementById("ranking");
 
-margin:0;
+let A;
+let B;
 
-padding:40px;
+function nuevoDuelo(){
 
-text-align:center;
+A = Math.floor(Math.random()*equipos.length);
+B = Math.floor(Math.random()*equipos.length);
+
+while(A === B){
+B = Math.floor(Math.random()*equipos.length);
+}
+
+equipoA.innerText = equipos[A].nombre;
+equipoB.innerText = equipos[B].nombre;
 
 }
 
-h1{
+equipoA.onclick = function(){
 
-font-size:38px;
+equipos[A].score += 10;
 
-margin-bottom:5px;
+actualizarRanking();
 
-}
-
-.container{
-
-display:grid;
-
-grid-template-columns:1fr 1fr 1fr;
-
-gap:25px;
-
-margin-top:40px;
+nuevoDuelo();
 
 }
 
-.card{
+equipoB.onclick = function(){
 
-background:#121821;
+equipos[B].score += 10;
 
-padding:25px;
+actualizarRanking();
 
-border-radius:12px;
-
-box-shadow:0 0 15px rgba(0,0,0,0.5);
+nuevoDuelo();
 
 }
 
-select{
+function actualizarRanking(){
 
-width:100%;
+let orden = equipos.slice().sort((a,b)=>b.score-a.score);
 
-padding:10px;
+ranking.innerHTML = "";
 
-background:#1c2430;
+orden.forEach((e,i)=>{
 
-border:none;
+let li = document.createElement("li");
 
-border-radius:6px;
+li.innerText = (i+1) + ". " + e.nombre + " — " + e.score;
 
-color:white;
+ranking.appendChild(li);
 
-}
-
-button{
-
-margin:5px;
-
-padding:12px;
-
-border:none;
-
-border-radius:6px;
-
-cursor:pointer;
-
-font-size:15px;
+});
 
 }
 
-.team{
+function reiniciar(){
 
-background:#1c2430;
+equipos.forEach(e => e.score = 1000);
 
-color:white;
+actualizarRanking();
 
-width:200px;
-
-height:80px;
-
-font-size:18px;
+nuevoDuelo();
 
 }
 
-.team:hover{
-
-background:#ff8c00;
-
-}
-
-.duelo{
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-gap:20px;
-
-margin-top:20px;
-
-}
-
-.vs{
-
-font-size:22px;
-
-font-weight:bold;
-
-}
-
-ol{
-
-text-align:left;
-
-}
-
-.tip{
-
-font-size:13px;
-
-color:#aaa;
-
-margin-top:10px;
-
-}
+nuevoDuelo();
+actualizarRanking();
