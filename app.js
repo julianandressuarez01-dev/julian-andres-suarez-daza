@@ -1,21 +1,20 @@
-let celulares = [
+let equipos = [
 
-{nombre:"iPhone 15 Pro", score:1000},
-
-{nombre:"Samsung Galaxy S24", score:1000},
-
-{nombre:"Google Pixel 8", score:1000},
-
-{nombre:"Xiaomi 13", score:1000},
-
-{nombre:"OnePlus 12", score:1000},
-
-{nombre:"Motorola Edge 40", score:1000}
+{nombre:"Real Madrid", score:1000},
+{nombre:"Barcelona", score:1000},
+{nombre:"Manchester City", score:1000},
+{nombre:"Liverpool", score:1000},
+{nombre:"Bayern Munich", score:1000},
+{nombre:"PSG", score:1000},
+{nombre:"Juventus", score:1000},
+{nombre:"Chelsea", score:1000},
+{nombre:"Inter Milan", score:1000},
+{nombre:"AC Milan", score:1000}
 
 ];
 
-let optionA = document.getElementById("optionA");
-let optionB = document.getElementById("optionB");
+let equipoA = document.getElementById("equipoA");
+let equipoB = document.getElementById("equipoB");
 let ranking = document.getElementById("ranking");
 
 let A;
@@ -23,23 +22,23 @@ let B;
 
 function nuevoDuelo(){
 
-A = Math.floor(Math.random()*celulares.length);
-B = Math.floor(Math.random()*celulares.length);
+A = Math.floor(Math.random()*equipos.length);
+B = Math.floor(Math.random()*equipos.length);
 
 while(A===B){
 
-B = Math.floor(Math.random()*celulares.length);
+B = Math.floor(Math.random()*equipos.length);
 
 }
 
-optionA.innerText = celulares[A].nombre;
-optionB.innerText = celulares[B].nombre;
+equipoA.innerText = equipos[A].nombre;
+equipoB.innerText = equipos[B].nombre;
 
 }
 
-optionA.onclick = function(){
+equipoA.onclick = function(){
 
-celulares[A].score += 10;
+equipos[A].score += 10;
 
 actualizarRanking();
 
@@ -47,9 +46,9 @@ nuevoDuelo();
 
 }
 
-optionB.onclick = function(){
+equipoB.onclick = function(){
 
-celulares[B].score += 10;
+equipos[B].score += 10;
 
 actualizarRanking();
 
@@ -59,15 +58,15 @@ nuevoDuelo();
 
 function actualizarRanking(){
 
-let orden = celulares.slice().sort((a,b)=>b.score-a.score);
+let orden = equipos.slice().sort((a,b)=>b.score-a.score);
 
 ranking.innerHTML="";
 
-orden.forEach(c=>{
+orden.forEach((e,i)=>{
 
 let li = document.createElement("li");
 
-li.innerText = c.nombre + " : " + c.score;
+li.innerText = (i+1) + ". " + e.nombre + " — " + e.score;
 
 ranking.appendChild(li);
 
@@ -77,10 +76,13 @@ ranking.appendChild(li);
 
 function reiniciar(){
 
-celulares.forEach(c=>c.score=1000);
+equipos.forEach(e=>e.score=1000);
 
 actualizarRanking();
+
+nuevoDuelo();
 
 }
 
 nuevoDuelo();
+actualizarRanking();
