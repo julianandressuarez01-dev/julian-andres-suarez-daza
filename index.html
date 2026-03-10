@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
 <meta charset="UTF-8">
-<title>PhoneMash</title>
-
+<title>TeamMash</title>
 <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
-<h1>📱 PhoneMash</h1>
-<p>Comparación A/B para construir rankings de celulares</p>
+<h1>⚽ TeamMash</h1>
+<p>Comparación A/B para descubrir qué equipo es mejor</p>
 
-<div class="grid">
+<div class="container">
 
-<!-- PANEL 1 -->
+<!-- PANEL CONFIGURA -->
 
 <div class="card">
 
@@ -25,10 +22,9 @@
 <label>Perfil</label>
 
 <select>
-<option>Usuarios Android</option>
-<option>Usuarios iPhone</option>
-<option>Gamers</option>
-<option>Fotografía</option>
+<option>Fans de fútbol</option>
+<option>Liga Europea</option>
+<option>Liga Latinoamericana</option>
 </select>
 
 <br><br>
@@ -36,31 +32,35 @@
 <button onclick="nuevoDuelo()">🔁 Nuevo duelo</button>
 <button onclick="reiniciar()">🔴 Reiniciar</button>
 
+<p class="tip">Tip: usa "Nuevo duelo" si se repite una comparación</p>
+
 </div>
 
-<!-- PANEL 2 -->
+<!-- PANEL VOTA -->
 
 <div class="card">
 
 <h2>2) Vota</h2>
 
-<p>¿Cuál celular recomiendas más?</p>
+<p>¿Qué equipo es mejor?</p>
 
 <div class="duelo">
 
-<button id="optionA" class="phone"></button>
+<button id="equipoA" class="team"></button>
 
-<button id="optionB" class="phone"></button>
+<span class="vs">VS</span>
+
+<button id="equipoB" class="team"></button>
 
 </div>
 
 </div>
 
-<!-- PANEL 3 -->
+<!-- PANEL RANKING -->
 
 <div class="card">
 
-<h2>3) Ranking</h2>
+<h2>3) Ranking (Top 10)</h2>
 
 <ol id="ranking"></ol>
 
@@ -68,6 +68,10 @@
 
 </div>
 
+<script src="script.js"></script>
+
+</body>
+</html>
 <script src="script.js"></script>
 
 </body>
