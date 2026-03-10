@@ -1,84 +1,73 @@
-// Lista de celulares
-
 let celulares = [
 
-{nombre:"iPhone 15 Pro", score:0},
+{nombre:"iPhone 15 Pro", score:1000},
 
-{nombre:"Samsung Galaxy S24 Ultra", score:0},
+{nombre:"Samsung Galaxy S24", score:1000},
 
-{nombre:"Google Pixel 8 Pro", score:0},
+{nombre:"Google Pixel 8", score:1000},
 
-{nombre:"Xiaomi 13 Pro", score:0},
+{nombre:"Xiaomi 13", score:1000},
 
-{nombre:"Motorola Edge 40", score:0},
+{nombre:"OnePlus 12", score:1000},
 
-{nombre:"OnePlus 12", score:0},
-
-{nombre:"Nothing Phone 2", score:0}
+{nombre:"Motorola Edge 40", score:1000}
 
 ];
 
 let optionA = document.getElementById("optionA");
 let optionB = document.getElementById("optionB");
-
 let ranking = document.getElementById("ranking");
 
-let currentA;
-let currentB;
+let A;
+let B;
 
-function nuevaComparacion(){
+function nuevoDuelo(){
 
-currentA = Math.floor(Math.random()*celulares.length);
+A = Math.floor(Math.random()*celulares.length);
+B = Math.floor(Math.random()*celulares.length);
 
-currentB = Math.floor(Math.random()*celulares.length);
+while(A===B){
 
-while(currentA === currentB){
-
-currentB = Math.floor(Math.random()*celulares.length);
+B = Math.floor(Math.random()*celulares.length);
 
 }
 
-optionA.innerText = celulares[currentA].nombre;
-
-optionB.innerText = celulares[currentB].nombre;
+optionA.innerText = celulares[A].nombre;
+optionB.innerText = celulares[B].nombre;
 
 }
 
 optionA.onclick = function(){
 
-celulares[currentA].score++;
+celulares[A].score += 10;
 
 actualizarRanking();
 
-nuevaComparacion();
+nuevoDuelo();
 
 }
 
 optionB.onclick = function(){
 
-celulares[currentB].score++;
+celulares[B].score += 10;
 
 actualizarRanking();
 
-nuevaComparacion();
+nuevoDuelo();
 
 }
 
 function actualizarRanking(){
 
-let orden = celulares.slice().sort(function(a,b){
-
-return b.score - a.score;
-
-});
+let orden = celulares.slice().sort((a,b)=>b.score-a.score);
 
 ranking.innerHTML="";
 
-orden.forEach(function(c){
+orden.forEach(c=>{
 
 let li = document.createElement("li");
 
-li.innerText = c.nombre + "  ⭐ " + c.score;
+li.innerText = c.nombre + " : " + c.score;
 
 ranking.appendChild(li);
 
@@ -86,4 +75,12 @@ ranking.appendChild(li);
 
 }
 
-nuevaComparacion();
+function reiniciar(){
+
+celulares.forEach(c=>c.score=1000);
+
+actualizarRanking();
+
+}
+
+nuevoDuelo();
