@@ -1,0 +1,198 @@
+body{
+
+background:#0b0b0c;
+color:white;
+font-family:system-ui, Arial, Helvetica, sans-serif;
+
+margin:0;
+padding:40px;
+
+}
+
+/* TITULOS */
+
+h1{
+
+font-size:36px;
+margin-bottom:10px;
+
+}
+
+h2{
+
+margin-top:0;
+
+}
+
+/* GRID PRINCIPAL */
+
+.container{
+
+display:grid;
+grid-template-columns:1fr 1fr 1fr;
+gap:25px;
+margin-top:30px;
+
+}
+
+/* TARJETAS */
+
+.card{
+
+background:linear-gradient(145deg,#121212,#1c1c1c);
+padding:28px;
+border-radius:18px;
+
+border:1px solid rgba(255,255,255,0.08);
+
+box-shadow:
+0 15px 35px rgba(0,0,0,0.6),
+inset 0 1px 0 rgba(255,255,255,0.05);
+
+transition:all 0.3s ease;
+
+}
+
+.card:hover{
+
+transform:translateY(-5px);
+
+box-shadow:
+0 25px 45px rgba(0,0,0,0.8),
+0 0 20px rgba(58,160,255,0.15);
+
+}
+
+/* SELECT */
+
+select{
+
+width:100%;
+padding:10px;
+
+margin-top:6px;
+margin-bottom:15px;
+
+background:#1b1b1b;
+border:none;
+
+color:white;
+
+border-radius:8px;
+
+}
+
+/* BOTONES */
+
+button{
+
+padding:10px 16px;
+margin:5px;
+
+border-radius:10px;
+border:none;
+
+background:linear-gradient(135deg,#2b2b2b,#1c1c1c);
+
+color:white;
+cursor:pointer;
+
+transition:all 0.25s ease;
+
+}
+
+button:hover{
+
+background:linear-gradient(135deg,#3aa0ff,#6cc2ff);
+
+transform:translateY(-2px);
+
+}
+
+/* DUELO */
+
+.duel{
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:15px;
+margin-top:15px;
+
+}
+
+/* RECTANGULOS DE OPCIONES */
+
+.song{
+
+flex:1;
+
+padding:22px;
+
+background:linear-gradient(135deg,#1a1a1a,#242424);
+
+border-radius:14px;
+
+text-align:center;
+
+cursor:pointer;
+
+border:1px solid rgba(255,255,255,0.08);
+
+font-weight:500;
+
+transition:all 0.25s ease;
+
+box-shadow:
+0 8px 20px rgba(0,0,0,0.5);
+
+}
+
+/* EFECTO HOVER */
+
+.song:hover{
+
+background:linear-gradient(135deg,#3aa0ff,#5bb8ff);
+
+transform:scale(1.04);
+
+box-shadow:
+0 12px 30px rgba(58,160,255,0.35);
+
+}
+
+/* VS */
+
+.vs{
+
+font-weight:bold;
+opacity:0.6;
+
+}
+
+/* RANKING */
+
+.rankItem{
+
+display:flex;
+justify-content:space-between;
+
+padding:8px;
+
+border-bottom:1px solid #222;
+
+font-size:14px;
+
+}
+
+/* RESPONSIVE (para laptop pequeña) */
+
+@media (max-width:1000px){
+
+.container{
+
+grid-template-columns:1fr;
+
+}
+
+}

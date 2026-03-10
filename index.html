@@ -3,67 +3,87 @@
 
 <head>
 <meta charset="UTF-8">
-<title>TeamMash</title>
-<link rel="stylesheet" href="style.css">
+<title>PhoneMash</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-<h1>⚽ TeamMash</h1>
-<p>Comparación A/B para descubrir qué equipo es mejor</p>
+<h1>📱 PhoneMash</h1>
+<p>Comparación A/B para crear rankings de smartphones.</p>
 
 <div class="container">
+
+<!-- CONFIGURA -->
 
 <div class="card">
 
 <h2>1) Configura</h2>
 
-<label>Perfil</label>
-
-<select>
-<option>Fans de fútbol</option>
-<option>Liga Europea</option>
-<option>Liga Latinoamericana</option>
+<label>Tipo de usuario</label>
+<select id="listener">
+<option value="casual">Usuario casual</option>
+<option value="gamer">Gamer</option>
+<option value="pro">Usuario avanzado</option>
 </select>
 
-<br><br>
+<label>Contexto de comparación</label>
+<select id="context">
+<option>¿Cuál tiene mejor cámara?</option>
+<option>¿Cuál tiene mejor rendimiento?</option>
+<option>¿Cuál tiene mejor batería?</option>
+<option>¿Cuál tiene mejor diseño?</option>
+<option>¿Cuál es mejor por su precio?</option>
+</select>
 
-<button onclick="nuevoDuelo()">🔁 Nuevo duelo</button>
-<button onclick="reiniciar()">🔴 Reiniciar</button>
+<button onclick="newBattle()">Nuevo duelo</button>
+<button onclick="resetVotes()">Reiniciar</button>
 
-<p class="tip">Tip: usa "Nuevo duelo" si se repite una comparación</p>
+<p style="opacity:0.6;margin-top:15px;">
+El ranking cambia según el tipo de usuario y el criterio.
+</p>
 
 </div>
+
+<!-- ELIGE -->
 
 <div class="card">
 
-<h2>2) Vota</h2>
+<h2>2) Elige</h2>
 
-<p>¿Qué equipo es mejor?</p>
+<p id="question">¿Cuál smartphone es mejor?</p>
 
-<div class="duelo">
+<div class="duel">
 
-<button id="equipoA" class="team"></button>
+<div id="optionA" class="song" onclick="vote(0)"></div>
 
-<span class="vs">VS</span>
+<div class="vs">VS</div>
 
-<button id="equipoB" class="team"></button>
+<div id="optionB" class="song" onclick="vote(1)"></div>
 
+</div>
+
+<div style="margin-top:20px;">
+<button onclick="showTop()">Ver Top 10</button>
+<button onclick="exportVotes()">Exportar CSV</button>
 </div>
 
 </div>
+
+<!-- RANKING -->
 
 <div class="card">
 
 <h2>3) Ranking (Top 10)</h2>
 
-<ol id="ranking"></ol>
+<div id="rankingList"></div>
 
 </div>
 
 </div>
 
-<script src="script.js" defer></script>
+<script src="script.js"></script>
 
 </body>
+
 </html>
