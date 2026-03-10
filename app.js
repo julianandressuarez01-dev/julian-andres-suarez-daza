@@ -25,10 +25,8 @@ function nuevoDuelo(){
 A = Math.floor(Math.random()*equipos.length);
 B = Math.floor(Math.random()*equipos.length);
 
-while(A===B){
-
+while(A === B){
 B = Math.floor(Math.random()*equipos.length);
-
 }
 
 equipoA.innerText = equipos[A].nombre;
@@ -60,7 +58,7 @@ function actualizarRanking(){
 
 let orden = equipos.slice().sort((a,b)=>b.score-a.score);
 
-ranking.innerHTML="";
+ranking.innerHTML = "";
 
 orden.forEach((e,i)=>{
 
@@ -76,7 +74,7 @@ ranking.appendChild(li);
 
 function reiniciar(){
 
-equipos.forEach(e=>e.score=1000);
+equipos.forEach(e => e.score = 1000);
 
 actualizarRanking();
 
