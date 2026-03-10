@@ -1,32 +1,66 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
+
 <meta charset="UTF-8">
-<title>Recomendador de Celulares</title>
+<title>PhoneMash</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-<div class="container">
+<h1>📱 PhoneMash</h1>
+<p>Comparación A/B para construir rankings de celulares</p>
 
-<h1>📱 Recomendador de Modelos de Celulares</h1>
-<p>Elige el celular que prefieres en cada comparación</p>
+<div class="grid">
 
-<div class="comparison">
+<!-- PANEL 1 -->
 
-<button id="optionA" class="phone-btn"></button>
+<div class="card">
 
-<div class="vs">VS</div>
+<h2>1) Configura</h2>
 
-<button id="optionB" class="phone-btn"></button>
+<label>Perfil</label>
+
+<select>
+<option>Usuarios Android</option>
+<option>Usuarios iPhone</option>
+<option>Gamers</option>
+<option>Fotografía</option>
+</select>
+
+<br><br>
+
+<button onclick="nuevoDuelo()">🔁 Nuevo duelo</button>
+<button onclick="reiniciar()">🔴 Reiniciar</button>
 
 </div>
 
-<div class="ranking-section">
+<!-- PANEL 2 -->
 
-<h2>🏆 Ranking de celulares</h2>
+<div class="card">
+
+<h2>2) Vota</h2>
+
+<p>¿Cuál celular recomiendas más?</p>
+
+<div class="duelo">
+
+<button id="optionA" class="phone"></button>
+
+<button id="optionB" class="phone"></button>
+
+</div>
+
+</div>
+
+<!-- PANEL 3 -->
+
+<div class="card">
+
+<h2>3) Ranking</h2>
 
 <ol id="ranking"></ol>
 
